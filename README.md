@@ -2,9 +2,9 @@
 
 In this program you're able to 
 
----
-node index.;s
----
+`
+node index.js
+`
 
 to generate a team profile featuring cards displaying each member of the team. 
 
