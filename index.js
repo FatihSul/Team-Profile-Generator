@@ -158,14 +158,36 @@ function generateTeam() {
   );
   console.log(team)
   for (let i = 0; i < team.length; i++) {
-    let card = `
-   <div class="col card">
-   <p>${team[i].name}</p>
-   <p>${team[i].id}</p>
-   <p>${team[i].email}</p>
-   
-   </div>
-   `;
+    if (team[i].officeNo) {
+      card = `
+      <div class="col card">
+      Manager
+      <p>${team[i].name}</p>
+      <p>id:${team[i].id}</p>
+      <p>Email:${team[i].email}</p>
+      <p>Office Number:${team[i].officeNo}</p>
+       </div>`
+    }else if (team[i].github){
+      card = `
+      <div class="col card">
+      Engineer
+      <p>${team[i].name}</p>
+      <p>id:${team[i].id}</p>
+      <p>Email:${team[i].email}</p>
+      <p>Github:${team[i].github}</p>
+       </div>`
+    }else {
+      card = `
+      <div class="col card">
+      Intern
+      <p>${team[i].name}</p>
+      <p>id:${team[i].id}</p>
+      <p>Email:${team[i].email}</p>
+      <p>School:${team[i].school}</p>
+      </div>`
+    };
+
+
     fs.appendFileSync("dist/team.html", card);
   }
 
