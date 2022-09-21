@@ -1,11 +1,18 @@
 # Team-Profile-Generator
 
-In this program you're able to 
+In this program you're able to generate a Team Profile featuring cards displaying each member of the team.
+
+using:
 
 `
 node index.js
 `
 
-to generate a team profile featuring cards displaying each member of the team. 
+You're able to bring up the prompts asking what you'd like to input for each member. 
 
-The selection allows you to include a Manager, Engineers & Interns.
+Starting with the manager then thereafter however many engineers and interns are working on the current project.
+
+
+Here is a demo of the code in action.
+
+![gif displaying the functionality of the program](./src/preview.gif)
