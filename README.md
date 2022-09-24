@@ -15,4 +15,4 @@ Starting with the manager then thereafter however many engineers and interns are
 
 Here is a demo of the code in action.
 
-![gif displaying the functionality of the program](./src/preview.gif)
+![gif displaying the functionality of the program](./src/preview.mp4)

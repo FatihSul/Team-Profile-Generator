@@ -156,76 +156,76 @@ function generateTeam() {
   fs.writeFileSync(
     "dist/team.html",
     `
-    
-    
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="Description" content="Enter your description here"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Team Profile Generator</title>
-    </head>
-    <div class="jumbotron jumbotron-fluid bg-dark text-white">
-      <div class="container">
-        <h1 class="display-4 d-flex justify-content-center">My team</h1>
-      </div>
-    </div>
-<body>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="Enter your description here"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Team Profile Generator</title>
+  </head>
+  <div class="jumbotron jumbotron-fluid bg-dark text-white">
     <div class="container">
-    <div class="row">`
-  );
+      <h1 class="display-4 d-flex justify-content-center">My team</h1>
+    </div>
+  </div>
+<body>
+  <div class="container">
+  <div class="row">`
+);
   console.log(team)
   for (let i = 0; i < team.length; i++) {
-    if (team[i].officeNo) {
-      card = `
-      <div class="col card">
-      <h1>${team[i].name}</h1>
-      <h4><i class="fa-solid fa-mug-hot"></i> Manager</h4>
-      <p>id: ${team[i].id}</p>
-      <p>Email: ${team[i].email}</p>
-      <p>Office Number: ${team[i].officeNo}</p>
-       </div>`
-    }else if (team[i].github){
-      card = `
-      <div class="col card">
-      <h1>${team[i].name}</h1>
-      <h4><i class="fa-solid fa-glasses"></i> Engineer</h4>
-      <p>id: ${team[i].id}</p>
-      <p>Email: ${team[i].email}</p>
-      <p>Github: ${team[i].github}</p>
-       </div>`
-    }else {
-      card = `
-      <div class="col card">
-      <h1>${team[i].name}</h1>
-      <h4><i class="fa-brands fa-wpbeginner"></i> Intern</h4>
-      <p>id: ${team[i].id}</p>
-      <p>Email: ${team[i].email}</p>
-      <p>School: ${team[i].school}</p>
+  if (team[i].officeNo) {
+    card = `
+    <div class="col card">
+    <h1>${team[i].name}</h1>
+    <h4><i class="fa-solid fa-mug-hot"></i> Manager</h4>
+    <p>id: ${team[i].id}</p>
+    <p>Email: <a href="mailto:${team[i].email}">${team[i].email}</a></p>
+    <p>Office Number: ${team[i].officeNo}</p>
       </div>`
-    };
+
+  }else if (team[i].github){
+    card = `
+    <div class="col card">
+    <h1>${team[i].name}</h1>
+    <h4><i class="fa-solid fa-glasses"></i> Engineer</h4>
+    <p>id: ${team[i].id}</p>
+    <p>Email: <a href="mailto:${team[i].email}">${team[i].email}</a></p>
+    <p>Github: <a href="https://github.com/${team[i].github}">${team[i].github}</a></p>
+      </div>`
+
+  }else {
+    card = `
+    <div class="col card">
+    <h1>${team[i].name}</h1>
+    <h4><i class="fa-brands fa-wpbeginner"></i> Intern</h4>
+    <p>id: ${team[i].id}</p>
+    <p>Email: <a href="mailto:${team[i].email}">${team[i].email}</a></p>
+    <p>School: ${team[i].school}</p>
+    </div>`
+  };
 
 
-    fs.appendFileSync("dist/team.html", card);
-  }
+  fs.appendFileSync("dist/team.html", card);
+}
 
-  fs.appendFileSync(
-    "dist/team.html",
-    `
-    </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
-    <script src="https://kit.fontawesome.com/73525b73cb.js" crossorigin="anonymous"></script>
-    </body>
-    </html>
-        `
+fs.appendFileSync(
+  "dist/team.html",
+  `
+  </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/73525b73cb.js" crossorigin="anonymous"></script>
+  </body>
+  </html>
+      `
   );
 }
 
